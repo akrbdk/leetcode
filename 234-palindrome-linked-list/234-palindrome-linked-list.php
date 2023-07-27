@@ -19,11 +19,13 @@ class Solution {
         $values = [];
         $count = 0;
         
-        do{
+        while(isset($head->val)){
             $values[] = $head->val;
             $head = $head->next;
             $count++;
-        } while(isset($head->val));
+        }
+        
+        
         
         for($i = 0; $i < $count/2; $i++){
             if($values[$i] != $values[$count - 1 - $i]){
