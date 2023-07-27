@@ -16,20 +16,22 @@ class Solution {
      * @return Boolean
      */
     function isPalindrome($head) {
-        $arr= [];
-    $count = 0;
-    
-    do {
-        $arr[] = $head->val;
-        $head = $head->next;
-        $count++;
-    } while(isset($head->val));
-    
-    for($i=0; $i<$count/2; $i++){
-        if($arr[$i]!=$arr[$count-1-$i]) return false;
-    }
-    
-    return true;
+        $values = [];
+        $count = 0;
+        
+        do{
+            $values[] = $head->val;
+            $head = $head->next;
+            $count++;
+        } while(isset($head->val));
+        
+        for($i = 0; $i < $count/2; $i++){
+            if($values[$i] != $values[$count - 1 - $i]){
+                return false;
+            }
+        }
+        
+        return true;
         
     }
 }
