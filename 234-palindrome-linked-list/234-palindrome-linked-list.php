@@ -26,7 +26,7 @@ class Solution {
         }
         
         
-        
+        $count = count($values);
         for($i = 0; $i < $count/2; $i++){
             if($values[$i] != $values[$count - 1 - $i]){
                 return false;
