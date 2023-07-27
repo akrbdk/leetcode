@@ -17,18 +17,15 @@ class Solution {
      */
     function isPalindrome($head) {
         $values = [];
-        $count = 0;
         
         while(isset($head->val)){
             $values[] = $head->val;
             $head = $head->next;
-            $count++;
         }
         
-        
-        $count = count($values);
-        for($i = 0; $i < $count/2; $i++){
-            if($values[$i] != $values[$count - 1 - $i]){
+        $countVal = count($values);
+        for($i = 0; $i < $countVal/2; $i++){
+            if($values[$i] != $values[$countVal - 1 - $i]){
                 return false;
             }
         }
