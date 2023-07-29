@@ -9,28 +9,24 @@ class Solution {
             return 1;
         }
 
-        $i = 0;
-        $j = floor($x/2);
+        $l = 0;
+        $r = floor($x/2);
 
-        while($i <= $j){
-            $middleValue =  floor(($i+$j)/2);
+        while($l <= $r){
+            $mid = floor(($l+$r) / 2);
+            $sqrt = $mid * $mid;
            
-            if($middleValue * $middleValue == $x){
-                return  $middleValue;
+            if($sqrt == $x){
+                return $mid;
+            }
+            
+            if($sqrt < $x){
+                $l = $mid + 1;
             } else {
-                if($middleValue * $middleValue < $x){
-                    $i = $middleValue + 1;
-                } else {
-                    $j = $middleValue - 1;
-                }
+                $r = $mid - 1;
             }
         }
 
-
-        if($middleValue * $middleValue < $x){
-            return  $middleValue;
-        }
-
-        return  $middleValue - 1;
+        return  $r;
     }
 }
