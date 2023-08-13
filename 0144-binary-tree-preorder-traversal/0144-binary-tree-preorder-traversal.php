@@ -18,12 +18,15 @@ class Solution {
      * @return Integer[]
      */
     function preorderTraversal($root) {
+        
         if($root->val === null){
             return [];
         }
         
         return array_merge(
-            [$root->val], 
+            [
+                $root->val
+            ], 
             $this->preorderTraversal($root->left), 
             $this->preorderTraversal($root->right)
         );
