@@ -4,14 +4,16 @@ class Solution {
      * @return Integer
      */
     function hammingWeight($n) {
-        $str = decbin($n);
-        $str = str_replace(0,'',$str);
-    
-    return strlen($str);
+        $binary = decbin($n);
+
+        return substr_count($binary,1);
     }
     
     function hammingWeight2($n) {
-        
+        $str = decbin($n);
+        $str = str_replace(0,'',$str);
+    
+        return strlen($str);
     }
     
     function hammingWeight3($n) {
