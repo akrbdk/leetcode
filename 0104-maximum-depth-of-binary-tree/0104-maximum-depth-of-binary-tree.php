@@ -25,8 +25,6 @@ class Solution {
         $left = $this->maxDepth($root->left);
         $right = $this->maxDepth($root->right);
         
-        print_r([$left, $right]);
-        
         return max($left, $right) + 1;
     }
 }
