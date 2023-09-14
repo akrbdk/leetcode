@@ -5,14 +5,14 @@ class Solution {
      * @return String[][]
      */
     function groupAnagrams($strs) {
-        $answer = [];
+        $ans = [];
         
         foreach($strs as $str){
             $wordArr = str_split($str);
             sort($wordArr);
-            $answer[implode('', $wordArr)][] = $str;
+            $ans[implode('', $wordArr)][] = $str;
         }
         
-        return $answer;
+        return $ans;
     }
 }
