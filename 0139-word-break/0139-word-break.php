@@ -38,11 +38,11 @@ class Solution {
         if(isset($memory[$start])){
             return $memory[$start];
         }
-
-        for ($end = $start + 1; $end <= strlen($s); $end++)
+        
+        for ($i = $start + 1; $i <= strlen($s); $i++)
         {
-            $input = substr($s, $start, $end - $start);
-            if (in_array($input, $wordDict) && $this->helperMemorized($s, $wordDict, $end, $memory))
+            $input = substr($s, $start, $i - $start);
+            if (in_array($input, $wordDict) && $this->helperMemorized($s, $wordDict, $i, $memory))
             {
                 $memory[$start] = true;
                 return true;
