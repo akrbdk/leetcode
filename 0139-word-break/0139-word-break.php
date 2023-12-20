@@ -5,36 +5,51 @@ class Solution {
      * @param String[] $wordDict
      * @return Boolean
      */
-    function wordBreak( $s, $wordDict )
-    {
-        $memo = [];
-        return $this->backtrack( $s, $wordDict, 0, $memo );
+    function wordBreak($s, $wordDict) {
+        $memory = [];
+        return $this->helperMemorized($s, $wordDict, 0, $memory);
+        //return $this->helper($s, $wordDict);
     }
-
-
-    function backtrack( $s, $wordDict, $start, &$memo )
+    
+    function helper($s, $wordDict){
+        if(!strlen($s)){
+            return true;
+        }
+        
+        foreach($wordDict as $word){
+            $wordLen = strlen($word);
+            if($word == substr($s, 0, $wordLen)){
+                if($this->helper(substr($s, $wordLen), $wordDict, $memory)){
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+    
+    function helperMemorized($s, $wordDict, $start, &$memory)
     {
-        if ( $start === strlen( $s ) )
+        if ($start === strlen($s))
         {
-            return TRUE;
+            return true;
         }
 
-        if(isset($memo[$start])){
-            return $memo[$start];
+        if(isset($memory[$start])){
+            return $memory[$start];
         }
 
-        for ( $end = $start + 1; $end <= strlen( $s ); $end++ )
+        for ($end = $start + 1; $end <= strlen($s); $end++)
         {
-            $input = substr( $s, $start, $end - $start );
-            
-            if ( in_array( $input, $wordDict ) && $this->backtrack( $s, $wordDict, $end, $memo ) )
+            $input = substr($s, $start, $end - $start);
+            if (in_array($input, $wordDict) && $this->helperMemorized($s, $wordDict, $end, $memory))
             {
-                $memo[$start] = true;
-                return TRUE;
+                $memory[$start] = true;
+                return true;
             }
         }
 
-        $memo[$start] = false;
-        return FALSE;
+        $memory[$start] = false;
+        return false;
     }
 }
