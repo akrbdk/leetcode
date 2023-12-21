@@ -1,4 +1,5 @@
 func wordBreak(s string, wordDict []string) bool {
+    
     dp := make([]bool, len(s)+1)
     dp[0] = true
     dict := make(map[string]struct{})
