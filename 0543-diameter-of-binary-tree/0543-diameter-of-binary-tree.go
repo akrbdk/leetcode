@@ -7,6 +7,8 @@
  * }
  */
 
+import "math"
+
 func diameterOfBinaryTree(root *TreeNode) int {
     if root == nil {
         return 0
