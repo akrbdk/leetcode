@@ -18,22 +18,23 @@ class Solution {
      * @return Integer[][]
      */
     function zigzagLevelOrder($root) {
-        $result = [];
-        $this->traceTree($root, 0, $result);
-        for ($i = 0; $i < count($result); $i++) {
-            if ($i % 2 === 1) {
-                $result[$i] = array_reverse($result[$i]);
+        $ans = [];
+        $this->tree($root, 0, $ans);
+        for($i = 0; $i < count($ans); $i++){
+            if($i % 2 === 1){
+                $ans[$i] = array_reverse($ans[$i]);
             }
         }
-        return $result;
+        return $ans;
     }
     
-    function traceTree($tree, $level, &$result) {
-        if ($tree === null) {
-            return true;
+    function tree($root, $level, &$ans){
+        if($root === null){
+            return false;
         }
-        $result[$level][] = $tree->val;
-        $this->traceTree($tree->left, $level + 1, $result);
-        $this->traceTree($tree->right, $level + 1, $result);
+        
+        $ans[$level][] = $root->val;
+        $this->tree($root->left, $level + 1, $ans);
+        $this->tree($root->right, $level + 1, $ans);
     }
 }
