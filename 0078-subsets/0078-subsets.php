@@ -12,9 +12,7 @@ class Solution {
         return $ans;
     }
     
-    function getSubsets(array $sub = [], int $start = 0, array $nums = [], array &$ans = []){
-        print_r([$sub, $nums]);
-        
+    function getSubsets(array $sub = [], int $start = 0, array $nums = [], array &$ans = []){        
         for($i = $start; $i < count($nums); $i++){
             $newSub = array_merge($sub, [$nums[$i]]);
             $ans[] = $newSub;
