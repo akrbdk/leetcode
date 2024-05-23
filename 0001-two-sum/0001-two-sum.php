@@ -6,16 +6,14 @@ class Solution {
      * @return Integer[]
      */
     function twoSum($nums, $target) {
-        $hashMap = [];
+        $seen = [];
         
-        foreach($nums as $k => $v){
-            $find = $target - $v;
-            
-            if(isset($hashMap[$find])){
-                return [$hashMap[$find], $k];
+        foreach($nums as $k=>$v){
+            $needed = $target - $v;
+            if(isset($seen[$needed])){
+                return [$seen[$needed], $k];
             }
-            
-            $hashMap[$v] = $k;
+            $seen[$v] = $k;
         }
     }
 }
