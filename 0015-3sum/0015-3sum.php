@@ -6,6 +6,52 @@ class Solution {
      */
     function threeSum($nums) {
         sort($nums);
+        $ans = [];
+        $seen = [];
+        
+        for($i = 0; $i < count($nums); $i++){
+            if(isset($seen[$nums[$i]])){
+                continue;
+            }
+            
+            $seen[$nums[$i]] = $i;
+            $this->twoSum($i, $nums, $ans);
+        }
+        
+        return $ans;
+    }
+    
+    function twoSum(int $key, array $nums, array &$ans){
+        $seen = [];
+        $target = -$nums[$key];
+        
+        for($j = $i + 1; $j < count($nums); $j++){
+            if($key == $j){
+                continue;
+            }
+            
+            $subTarget = $target - $nums[$j];
+            
+            if(isset($seen[$subTarget])){
+                $tmp = [$nums[$key], $nums[$j], $subTarget];
+                sort($tmp);
+                if(isset($ans[implode("", $tmp)])){
+                    continue;
+                }
+                $ans[implode("", $tmp)] = $tmp;
+                continue;
+            }
+            $seen[$nums[$j]] = $j;
+        }
+    }
+    
+    
+    /**
+     * @param Integer[] $nums
+     * @return Integer[][]
+     */
+    function threeSum1($nums) {
+        sort($nums);
         $res = [];
         $resHash = [];
         
