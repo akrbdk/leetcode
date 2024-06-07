@@ -8,12 +8,14 @@ class Solution {
     function twoSum($nums, $target) {
         $seen = [];
         
-        foreach($nums as $k=>$v){
-            $needed = $target - $v;
-            if(isset($seen[$needed])){
-                return [$seen[$needed], $k];
+        foreach($nums as $key => $num){
+            $t = $target - $num;
+            
+            if(isset($seen[$t])){
+                return [$seen[$t], $key];
             }
-            $seen[$v] = $k;
+            
+            $seen[$num] = $key;
         }
     }
 }
