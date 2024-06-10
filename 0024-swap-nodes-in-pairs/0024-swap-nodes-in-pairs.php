@@ -16,12 +16,9 @@ class Solution {
      * @return ListNode
      */
     function swapPairs($head) {
-        $dummy = new ListNode();
-        $dummy->next = $head;
-        
+        $dummy = new ListNode(0, $head);
         $prev = $dummy;
         $cur = $dummy->next;
-        
         while($cur && $cur->next){
             $next = $cur->next;
             
@@ -32,8 +29,6 @@ class Solution {
             $prev = $cur;
             $cur = $cur->next;
         }
-        
-        
         return $dummy->next;
     }
 }
