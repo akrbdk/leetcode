@@ -5,18 +5,19 @@ class Solution {
      * @return Integer
      */
     function removeDuplicates(&$nums) {
-        $j = 0;
+        $l = 0;
         
-    
-        for($i = 1; $i <= count($nums); $i++){
-            if($nums[$j] !== $nums[$i]){
-                $j++;
-                $tmp = $nums[$j];
-                $nums[$j] = $nums[$i];
-                $nums[$i] = $tmp;
+        for($r = 1; $r <= count($nums); $r++){
+            if($nums[$l] === $nums[$r]){
+                continue;
             }
+            
+            $l++;
+            $tmp = $nums[$r];
+            $nums[$r] = $nums[$l];
+            $nums[$l] = $tmp;
         }
         
-        return $j++;
+        return $l++;
     }
 }
