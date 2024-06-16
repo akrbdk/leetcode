@@ -8,10 +8,11 @@ func mySqrt(x int) int {
     
     for l <= r {
         mid := l + (r - l) / 2
+        sqrt := mid * mid
         
-        if (mid * mid) == x {
+        if sqrt == x {
             return mid
-        } else if (mid * mid) < x {
+        } else if sqrt < x {
             res = mid
             l = mid + 1
         } else {
