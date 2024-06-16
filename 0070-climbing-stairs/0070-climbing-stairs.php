@@ -5,6 +5,20 @@ class Solution {
      * @return Integer
      */
     function climbStairs($n) {
+        $first = 1;
+        $second = 1;
+        
+        while($n > 1) {
+            $tmp = $first;
+            $first = $second;
+            $second = $tmp + $second;
+            $n--;
+        }
+        
+        return $second;
+    }
+    
+    function climbStairs2($n) {
         if($n < 2) {
             return $n;
         }
