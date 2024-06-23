@@ -9,6 +9,7 @@ class Solution {
         
         foreach($nums as $num){
             $answer ^= $num;
+            print_r($num, $answer);
         }
         
         return $answer;
