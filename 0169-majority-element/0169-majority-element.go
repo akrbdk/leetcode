@@ -1,4 +1,17 @@
 func majorityElement(nums []int) int {
+    m := make(map[int]int)
+    times := len(nums) / 2
+    for _, num := range nums {
+        m[num]++
+        if m[num] > times {
+            return num
+        }
+    }
+    
+    return 0
+}
+
+func majorityElement1(nums []int) int {
     cnt, ans := 0, 0
     for _, num := range nums {
         if cnt == 0 {
