@@ -1,5 +1,5 @@
 # Write your MySQL query statement below
-WITH single_deps AS (
+WITH single_deps(id) AS (
     SELECT employee_id
     FROM Employee
     GROUP BY employee_id
@@ -7,4 +7,4 @@ WITH single_deps AS (
 )
 SELECT employee_id, department_id
 FROM Employee
-WHERE employee_id IN (SELECT DISTINCT * FROM single_deps) OR primary_flag = 'Y';
+WHERE employee_id IN (SELECT DISTINCT id FROM single_deps) OR primary_flag = 'Y';
