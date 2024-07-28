@@ -1,5 +1,5 @@
 func summaryRanges(nums []int) []string {
-    var ans []string
+    ans := []string{}
     numsLen := len(nums)
     
     for i := 0; i < numsLen; i++ {
