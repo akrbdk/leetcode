@@ -8,7 +8,7 @@ class Solution {
         while($num >= 10){
             $newNum = 0;
         
-            while($num){
+            while($num){                
                 $newNum += $num % 10;
                 $num = (int)$num / 10;
             }
