@@ -8,6 +8,7 @@ class Solution {
     function wordPattern($pattern, $s) {
         $hashMap = [];
         $countS = [];
+        
         $sArr = explode(' ', $s);
         $patternLen = strlen($pattern);
         
@@ -16,7 +17,9 @@ class Solution {
         }
         
         for($i = 0; $i < $patternLen; $i++){
-            if((isset($hashMap[$pattern[$i]]) || $countS[$sArr[$i]]) && $hashMap[$pattern[$i]] != $sArr[$i]){
+            
+            $seen = isset($hashMap[$pattern[$i]]) || $countS[$sArr[$i]];
+            if($seen && $hashMap[$pattern[$i]] != $sArr[$i]){
                 return false;
             }
             
