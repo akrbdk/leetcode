@@ -12,9 +12,7 @@ func repeatedSubstringPattern(s string) bool {
         for j := 0; j < (sLen / len(sub)); j++ {
             tmpS += sub
         }
-        
-        fmt.Println(tmpS)
-                        
+                                
         if tmpS == s {
             return true
         }
