@@ -12,6 +12,8 @@ class Solution {
         $ans = '';
         
         while($n1Len >= 0 || $n2Len >= 0 || $carry > 0){
+            
+            //substract '0' helps to convert string to int
             $n1Val = $n1Len >= 0 ? $num1[$n1Len] - '0' : 0;
             $n2Val = $n2Len >= 0 ? $num2[$n2Len] - '0' : 0;
             
