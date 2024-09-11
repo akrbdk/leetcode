@@ -7,27 +7,25 @@ class Solution {
      */
     function findRestaurant($list1, $list2) {
         $map1 = array_flip($list1);
-    $minIndexSum = PHP_INT_MAX;
-    $result = [];
-
-    // Loop through list2 and check for common strings
-    foreach ($list2 as $index2 => $restaurant) {
-        if (isset($map1[$restaurant])) {
-            // Calculate the index sum
-            $indexSum = $index2 + $map1[$restaurant];
+        $minIdx = PHP_INT_MAX;
+        
+        $ans = [];
+        
+        foreach($list2 as $key=>$val){
+            if(!isset($map1[$val])){
+                continue;
+            }
             
-            // If the current index sum is less than the minimum, reset the result array
-            if ($indexSum < $minIndexSum) {
-                $minIndexSum = $indexSum;
-                $result = [$restaurant];
-            } 
-            // If the index sum is the same as the current minimum, add to result
-            elseif ($indexSum == $minIndexSum) {
-                $result[] = $restaurant;
+            $index = $map1[$val] + $key;
+            
+            if($index < $minIdx){
+                $minIdx = $index;
+                $ans = [$val];
+            } elseif($index == $minIdx) {
+                $ans[] = $val;
             }
         }
-    }
-
-    return $result;
+        
+        return $ans;
     }
 }
