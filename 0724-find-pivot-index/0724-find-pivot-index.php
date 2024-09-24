@@ -13,9 +13,7 @@ class Solution {
             for($j = $i + 1; $j < $numsCnt; $j++){
                 $rSum += $nums[$j];
             }
-            
-            print_r([$lSum, $rSum]);
-            
+                        
             if($lSum == $rSum){
                 return $i;
             }
