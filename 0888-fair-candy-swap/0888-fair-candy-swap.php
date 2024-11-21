@@ -14,7 +14,6 @@ class Solution {
         foreach($aliceSizes as $size){
             $needed = $size - $delta;
             if(in_array($needed, $bobSizes)){
-                print_r([$size, $delta, $needed]);
                 return [$size, $needed];
             }
         }
