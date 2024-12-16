@@ -29,9 +29,7 @@ class Solution {
             $l++;
             $r--;
         }
-        
-        //print_r($ans);
-        
+                
         return implode($ans);
     }
 }
